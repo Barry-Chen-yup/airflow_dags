@@ -36,7 +36,7 @@ with DAG(
     ssh = SSHOperator(
         task_id='ssh',
         ssh_conn_id='workspace',
-        command='echo 1',
+        command='touch /workspace/1.txt',
     ) 
     # python_timestamp = PythonOperator(
     #     task_id='python',

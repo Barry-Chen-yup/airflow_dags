@@ -36,7 +36,7 @@ with DAG(
     ssh = SSHOperator(
         task_id='ssh',
         ssh_conn_id='workspace',
-        command='sudo python /workspace/tracker/code/track_chicken_date_gpu.py /workspace/nas-data/Animal/chicken_video/20210131',
+        command='python /workspace/tracker/code/track_chicken_date_gpu.py /workspace/nas-data/Animal/chicken_video/20210131 ',
     ) 
     # python_timestamp = PythonOperator(
     #     task_id='python',

@@ -58,3 +58,4 @@ with DAG(
     #     dag=dag
     # )
     # cleanup_task >> email_task
+    ssh

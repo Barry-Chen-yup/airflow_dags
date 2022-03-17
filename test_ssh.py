@@ -7,7 +7,7 @@ from airflow.utils.dates import days_ago
 from airflow.operators.email import EmailOperator
 import pendulum
 import time
-from airflow.providers.ssh.operators.ssh import SSHOperator
+from airflow.contrib.operators.ssh_operator import SSHOperator
 
 local_tz = pendulum.timezone("Asia/Taipei")
 
@@ -32,7 +32,6 @@ with DAG(
     tags=['example'],
     max_active_runs=1, # Follow a sequence to avoid deadlock when using MySQL
 ) as dag:
-   
 
     ssh = SSHOperator(
         task_id='ssh',

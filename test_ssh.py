@@ -36,14 +36,14 @@ with DAG(
     ssh = SSHOperator(
         task_id='ssh',
         ssh_conn_id='workspace',
-        command='python /workspace/tracker/code/track_chicken_date_gpu.py /workspace/nas-data/Animal/chicken_video/20210131',
+        command='echo 1',
     ) 
     # python_timestamp = PythonOperator(
     #     task_id='python',
     #     python_callable=fun,
     #     #provide_context=True,
     #     #dag=dag
-    # )        
+    # )        python /workspace/tracker/code/track_chicken_date_gpu.py /workspace/nas-data/Animal/chicken_video/20210131
     # cleanup_task = BashOperator(
     #     task_id='task_1_data_file_cleanup',
     #     # cmd = 'python3 /workspace/tracker/code/track_chicken_test.py "/workspace/nas-data/Animal/chicken_video/"$(date -d "yesterday" +%Y%m%d)'

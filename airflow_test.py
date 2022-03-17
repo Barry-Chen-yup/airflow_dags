@@ -11,7 +11,7 @@ import time
 local_tz = pendulum.timezone("Asia/Taipei")
 
 default_args = {
-    'owner': 'som,
+    'owner': 'barry',
     'depends_on_past': False,
     #'start_date': airflow.utils.dates.days_ago(1),
     'email': ['akj00173@gmail.com'],

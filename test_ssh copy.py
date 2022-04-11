@@ -23,7 +23,7 @@ default_args = {
 }
 
 with DAG(
-    dag_id='ssh_test',
+    dag_id='ssh_test_mail',
     default_args=default_args,
     description='A simple tutorial DAG',
     schedule_interval='0 0 * * *',

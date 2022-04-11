@@ -33,11 +33,12 @@ with DAG(
     max_active_runs=1, # Follow a sequence to avoid deadlock when using MySQL
 ) as dag:
 
-    ssh = SSHOperator(
-        task_id='ssh',
-        ssh_conn_id='workspace',
-        command='/workspace/tracker.sh ',
-    ) 
+    # ssh = SSHOperator(
+    #     task_id='ssh',
+    #     ssh_conn_id='workspace',
+    #     command='/workspace/tracker.sh ',
+    # ) 
+
     # python_timestamp = PythonOperator(
     #     task_id='python',
     #     python_callable=fun,
@@ -50,12 +51,13 @@ with DAG(
     #     bash_command='python3 /workspace/tracker/code/track_chicken_date_gpu.py "/workspace/nas-data/Animal/chicken_video/"$(date -d "yesterday" +%Y%m%d)',
     #     dag=dag
     # )
-    # email_task = EmailOperator(
-    #     task_id='send_email',
-    #     to='akj00173@gmail.com',
-    #     subject='Airflow success',
-    #     html_content=""" <h3>Email Test</h3> {{ execution_date }}<br/>""",
-    #     dag=dag
-    # )
+    email_task = EmailOperator(
+        task_id='send_email',
+        to='akj00173@gmail.com',
+        subject='Airflow success',
+        html_content=""" <h3>Email Test</h3> {{ execution_date }}<br/>""",
+        dag=dag
+    )
     # cleanup_task >> email_task
-    ssh
+    # ssh
+    email_task
